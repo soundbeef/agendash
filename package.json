@@ -44,8 +44,8 @@
     "mongodb": "*"
   },
   "devDependencies": {
-    "@hapi/hapi": "19.2.0",
-    "@hapi/inert": "6.0.3",
+    "@hapi/hapi": "20.2.0",
+    "@hapi/inert": "6.0.4",
     "ava": "3.15.0",
     "eslint": "7.19.0",
     "koa": "2.13.1",
