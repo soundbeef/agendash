@@ -1,11 +1,11 @@
 {
-  "name": "agendash",
-  "version": "2.1.1",
+  "name": "@soundbeef/agendash",
+  "version": "3.0.0",
   "description": "A modern dashboard for Agenda.js with Pagination and Search capabilities",
   "main": "app.js",
   "bin": "bin/agendash-standalone.js",
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=14.0.0"
   },
   "scripts": {
     "test": "run-p lint ava",
@@ -20,12 +20,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/agenda/agendash.git"
+    "url": "git+https://github.com/soundbeef/agendash.git"
   },
   "bugs": {
-    "url": "https://github.com/agenda/agendash/issues"
+    "url": "https://github.com/soundbeef/agendash/issues"
   },
-  "homepage": "https://github.com/agenda/agendash#readme",
+  "homepage": "https://github.com/soundbeef/agendash#readme",
   "license": "MIT",
   "files": [
     "bin",
@@ -37,12 +37,11 @@
     "entrypoint.sh"
   ],
   "dependencies": {
-    "agenda": "^3.1.0 || ^4.0.0",
+    "@hokify/agenda": "^6.0.0",
     "body-parser": "^1.15.0",
     "commander": "^2.9.0",
     "express": "^4.0.0",
-    "mongodb": "*",
-    "semver": "^7.3.4"
+    "mongodb": "*"
   },
   "devDependencies": {
     "@hapi/hapi": "19.2.0",
@@ -59,7 +58,8 @@
   },
   "eslintConfig": {
     "parserOptions": {
-      "ecmaVersion": 2019
+      "sourceType": "module",
+      "ecmaVersion": 2020
     },
     "env": {
       "es6": true,
