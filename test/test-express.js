@@ -1,9 +1,10 @@
 const test = require("ava");
 const supertest = require("supertest");
 const express = require("express");
-const Agenda = require("agenda");
+const { Agenda } = require("@hokify/agenda");
 
-const agenda = new Agenda().database(
+const agenda = new Agenda();
+agenda.database(
   "mongodb://127.0.0.1/agendash-test-db",
   "agendash-test-collection",
   { useUnifiedTopology: true }
@@ -21,7 +22,7 @@ test.before.cb((t) => {
 });
 
 test.beforeEach(async () => {
-  await agenda._collection.deleteMany({}, null);
+  await agenda.db.collection.deleteMany({}, null);
 });
 
 test.serial(
@@ -49,7 +50,7 @@ test.serial(
 
     t.true("created" in response.body);
 
-    agenda._collection.count({}, null, (error, result) => {
+    agenda.db.collection.count({}, null, (error, result) => {
       t.falsy(error);
       if (result !== 1) {
         throw new Error("Expected one document in database");
@@ -73,7 +74,7 @@ test.serial("POST /api/jobs/delete should delete the job", async (t) => {
 
   t.true("deleted" in response.body);
 
-  const count = await agenda._collection.count({}, null);
+  const count = await agenda.db.collection.count({}, null);
   t.is(count, 0);
 });
 
@@ -92,6 +93,6 @@ test.serial("POST /api/jobs/requeue should requeue the job", async (t) => {
 
   t.false("newJobs" in response.body);
 
-  const count = await agenda._collection.count({}, null);
+  const count = await agenda.db.collection.count({}, null);
   t.is(count, 2);
 });

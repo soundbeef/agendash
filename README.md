@@ -1,6 +1,6 @@
 # Agendash
 
-A Dashboard for [Agenda](https://github.com/agenda/agenda).
+A fork of the original [Agendash](https://github.com/agenda/agendash) updated to run against the latest version of [@hokify/Agenda](https://github.com/hokify/agenda).
 
 ---
 
@@ -70,7 +70,7 @@ db.agendaJobs.ensureIndex({
 ### Install
 
 ```
-npm install --save agendash
+npm install --save @soundbeef/agendash
 ```
 
 _Note_: `Agendash` requires mongodb version >2.6.0 to perform the needed aggregate queries. This is your mongo database version, not your node package version! To check your database version, connect to mongo and run `db.version()`.
@@ -89,8 +89,8 @@ var app = express();
 
 // ... your other express middleware like body-parser
 
-var Agenda = require("agenda");
-var Agendash = require("agendash");
+var { Agenda } = require("@hokify/agenda");
+var Agendash = require("@soundbeef/agendash");
 
 var agenda = new Agenda({ db: { address: "mongodb://127.0.0.1/agendaDb" } });
 // or provide your own mongo client:
