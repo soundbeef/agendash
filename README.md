@@ -89,7 +89,7 @@ var app = express();
 
 // ... your other express middleware like body-parser
 
-var Agenda = require("@hokify/agenda");
+var { Agenda } = require("@hokify/agenda");
 var Agendash = require("@soundbeef/agendash");
 
 var agenda = new Agenda({ db: { address: "mongodb://127.0.0.1/agendaDb" } });

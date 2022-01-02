@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 "use strict";
-const Agenda = require("@hokify/agenda");
+const { Agenda } = require("@hokify/agenda");
 const agendash = require("../app");
 const Koa = require("koa");
 const program = require("commander");
