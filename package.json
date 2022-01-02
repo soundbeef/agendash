@@ -10,7 +10,7 @@
   "scripts": {
     "test": "run-p lint ava",
     "lint": "eslint ./",
-    "ava": "ava -v -c 1"
+    "ava": "ava -v -c 1 --timeout=1m"
   },
   "keywords": [
     "agenda",
